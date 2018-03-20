@@ -52,7 +52,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 
     // queryTuna - requires 1 argument, ex: args: ['4'],
     const request = {
-        chaincodeId: 'tuna-app',
+        chaincodeId: 'supp-app',
         txId: tx_id,
         fcn: 'queryTuna',
         args: [key]
