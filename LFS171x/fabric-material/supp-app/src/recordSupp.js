@@ -22,7 +22,7 @@ var balance = array[5]
 var fabric_client = new Fabric_Client();
 
 // setup the fabric network
-var channel = fabric_client.newChannel('mychannelSupp');
+var channel = fabric_client.newChannel('mychannel');
 var peer = fabric_client.newPeer('grpc://localhost:7051');
 channel.addPeer(peer);
 var order = fabric_client.newOrderer('grpc://localhost:7050')
@@ -66,7 +66,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
         chaincodeId: 'supp-app',
         fcn: 'recordSupp',
         args: [key, emailaddress, name, role, holder, balance],
-        chainId: 'mychannelSupp',
+        chainId: 'mychannel',
         txId: tx_id
     };
 

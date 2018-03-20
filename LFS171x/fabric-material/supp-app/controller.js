@@ -93,7 +93,7 @@ return{
 		var fabric_client = new Fabric_Client();
 
 		// setup the fabric network
-		var channel = fabric_client.newChannel('mychannelSupp');
+		var channel = fabric_client.newChannel('mychannel');
 		var peer = fabric_client.newPeer('grpc://localhost:7051');
 		channel.addPeer(peer);
 		var order = fabric_client.newOrderer('grpc://localhost:7050')
@@ -130,6 +130,12 @@ return{
 		    tx_id = fabric_client.newTransactionID();
 		    console.log("Assigning transaction_id: ", tx_id._transaction_id);
 
+		    console.log(key)
+		    console.log(emailaddress)
+		    console.log(name)
+		    console.log(role)
+		    console.log(holder)
+		    console.log(balance)
 		    // recordTuna - requires 5 args, ID, vessel, location, timestamp,holder - ex: args: ['10', 'Hound', '-12.021, 28.012', '1504054225', 'Hansel'], 
 		    // send proposal to endorser
 		    const request = {
@@ -137,7 +143,7 @@ return{
 		        chaincodeId: 'supp-app',
 		        fcn: 'recordSupp',
 		        args: [key, emailaddress, name, role, holder, balance],
-		        chainId: 'mychannelSupp',
+		        chainId: 'mychannel',
 		        txId: tx_id
 		    };
 
@@ -243,7 +249,7 @@ return{
 		var key = req.params.id
 
 		// setup the fabric network
-		var channel = fabric_client.newChannel('mychannelSupp');
+		var channel = fabric_client.newChannel('mychannel');
 		var peer = fabric_client.newPeer('grpc://localhost:7051');
 		channel.addPeer(peer);
 
